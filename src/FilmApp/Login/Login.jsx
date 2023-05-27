@@ -1,38 +1,10 @@
 import React from "react";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function SignUp() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    if (email === "" || !email.includes("@")) {
-      alert("Ivalid email!");
-    } else if (password === "" || password.length < 8) {
-      alert("Invalid password!");
-    } else if (password !== confirmPassword) {
-      alert("Your password does not match!");
-      const user = { email, password };
-      fetch("https://64565c055f9a4f236141cc94.mockapi.io/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          alert("Sign up successful (^_^)");
-        })
-        .catch((error) => {
-          alert("Sign up failed (T.T)");
-        });
-    }
-  };
-
   return (
     <div
       style={{
@@ -42,11 +14,12 @@ function SignUp() {
         alignItems: "center",
       }}
     >
-      <h1 style={{ marginBottom: 24 }}>Sign Up</h1>
+      <h1 style={{ marginBottom: 24 }}>Login</h1>
       <form>
         <div>
           <label htmlFor="email">Email:</label>
           <input
+            placeholder="Enter your email"
             type="email"
             id="email"
             value={email}
@@ -55,19 +28,12 @@ function SignUp() {
           />
           <label htmlFor="password">Password:</label>
           <input
+            placeholder="Enter your password"
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={{ width: "100%", marginBottom: 8, color: "#000" }}
-          />
-          <label htmlFor="confirm-password">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            style={{ width: "100%", color: "#000" }}
           />
         </div>
         <div
@@ -80,16 +46,16 @@ function SignUp() {
             marginBottom: 20,
           }}
         >
-          <button
+          <NavLink
+            to="/"
             style={{
               padding: 8,
               cursor: "pointer",
             }}
             type="submit"
-            onClick={handleSignUp}
           >
-            Sign Up
-          </button>
+            Login
+          </NavLink>
         </div>
         <div
           style={{
@@ -98,10 +64,14 @@ function SignUp() {
             justifyContent: "center",
             alignItems: "center",
           }}
-        ></div>
+        >
+          <p>
+            Don't have an account? <NavLink to="/signup">Sign up</NavLink>
+          </p>
+        </div>
       </form>
     </div>
   );
 }
 
-export default SignUp;
+export default Login;

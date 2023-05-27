@@ -1,0 +1,50 @@
+* {
+  margin: 4px 8px 8px 8px;
+}
+
+button img {
+  width: 115px;
+  height: 48px;
+  border: none;
+}
+button img:focus {
+  border: none;
+  outline: none;
+}
+.LeftNav {
+  margin-left: 12px;
+}
+.LeftNav img {
+  width: 115px;
+  height: 48px;
+  cursor: pointer;
+}
+.LeftNav a {
+  margin: 8px;
+}
+.searchbar {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: transparent;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.searchbar:focus {
+  width: 300px;
+}
+.RightNav {
+  display: flex;
+  align-items: center;
+}
+.RightNav button {
+  border: none;
+  margin: 8px;
+  font-size: 120%;
+  cursor: pointer;
+}

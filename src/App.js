@@ -1,12 +1,18 @@
 import React from "react";
-import SignUp from "./SS3/LoginNSignup/Signup";
-import SS3 from "./SS3/SS3";
+import FilmApp from "./FilmApp/FilmApp";
+import { Route, Routes } from "react-router-dom";
+import Login from "./FilmApp/Login/Login";
+import SignUp from "./FilmApp/Signup/Signup";
 
 function App() {
   return (
-    <>
-      <SignUp />
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<FilmApp />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
+      </Routes>
+    </div>
   );
 }
 

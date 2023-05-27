@@ -1,7 +1,7 @@
 import React from "react";
 
-function IconSizeBigger({ size, ...rest }) {
+function Icon({ size, ...rest }) {
   return <i {...rest} style={{ fontSize: size }}></i>;
 }
 
-export default IconSizeBigger;
+export default Icon;
